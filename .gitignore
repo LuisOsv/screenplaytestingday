@@ -1,0 +1,13 @@
+# Don't track content of these folders
+.idea/
+.gradle/
+target/
+build/
+drivers/
+*/chromedriver.exe
+*/chromedriver
+
+
+*.iws
+*.iml
+*.ipr

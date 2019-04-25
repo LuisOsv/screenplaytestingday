@@ -1,0 +1,40 @@
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+buildscript {
+    ext {
+        serenity_version = '2.0.40'
+        serenity_cucumber_version = '1.9.31'
+    }
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:' + serenity_version)
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+    testCompile('junit:junit:4.12')
+    testCompile 'net.serenity-bdd:serenity-core:' + serenity_version
+    testCompile 'net.serenity-bdd:serenity-junit:' + serenity_version
+    testCompile 'net.serenity-bdd:serenity-screenplay:' + serenity_version
+    testCompile 'net.serenity-bdd:serenity-screenplay-webdriver:' + serenity_version
+    testCompile 'net.serenity-bdd:serenity-cucumber:' + serenity_cucumber_version
+    testCompile 'net.serenity-bdd:serenity-screenplay-rest:' + serenity_version
+}
+gradle.startParameter.continueOnFailure = true
+
