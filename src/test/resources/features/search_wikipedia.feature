@@ -1,6 +1,6 @@
 Feature: search Wikipedia
 
-  Scenario: direct search article
-    Given Enter search term 'Cucumber'
-    When Do search
-    Then Single result is shown for 'Cucumber'
+  Scenario: Search for term in home page
+    Given Luis navigates to Wikipedia home page
+    When he searches for "Testing" term
+    Then he should see "Test" in header of result page

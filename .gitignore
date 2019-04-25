@@ -6,6 +6,7 @@ build/
 drivers/
 */chromedriver.exe
 */chromedriver
+/out
 
 
 *.iws
