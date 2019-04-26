@@ -1,6 +1,5 @@
 package org.testingday.bdd.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,6 +18,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class WikipediaSteps {
 
+    String WikipediaUrl = "https://www.wikipedia.org";
+
     @Before
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
@@ -27,14 +28,14 @@ public class WikipediaSteps {
     @Given("^(.*) navigates to Wikipedia home page$")
     public void navigateToWikipediaHomePage(String actorName) {
         theActorCalled(actorName).attemptsTo(
-                NavigateTo.theWikipediaHomePage()
+                NavigateTo.url(WikipediaUrl)
         );
     }
 
     @When("^s?he searches for \"([^\"]*)\" term$")
     public void searchForTerm(String searchText) {
         theActorInTheSpotlight().attemptsTo(
-                SearchForAlternative.term(searchText)
+                SearchFor.term(searchText)
         );
     }
 
